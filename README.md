@@ -14,15 +14,18 @@ FiDo can store, analyze, and help you make better decisions about your fiber opt
 
 For a more information, keep reading.
 
-## Features
-* Simple, intuitive, and tablet-ready interface.
+## Current Features
 * Easy set up and configuration.
+* Simple, intuitive, and tablet-ready interface.
 * Provides a centralized record (easy automated backups).
+* Allows for comparison of "optimal conditions" and current conditions.
 * Works great with PhpMyAdmin.
+
+
+## Future Features
 * Automatically calculates most efficient route for new fiber.
 * Automatically calculates loss and cable requirements.
-* Allows for comparison of "optimal conditions" and current conditions.
-* Modular design allows for quick customization of individual sections of the front end.
+* Modular design to allow quick customization of individual sections of the front end.
 
 
 ## What it accomplishes:
@@ -71,3 +74,4 @@ Using intelligent data (we talked about that already) FiDo generates reports to 
 For more information about FiDo, contact Seth Timmons at timmseth@isu.edu .
 
 Thanks for caring about FiDo!
+
