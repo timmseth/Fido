@@ -22,12 +22,6 @@ For a more information, keep reading.
 * Works great with PhpMyAdmin.
 
 
-## Future Features
-* Automatically calculates most efficient route for new fiber.
-* Automatically calculates loss and cable requirements.
-* Modular design to allow quick customization of individual sections of the front end.
-
-
 ## What it accomplishes:
 ### Complete C.R.U.D. Management of Fiber Optic Resources.
 C.R.U.D. stands for "Create. Read. Update. Delete.".<br />
@@ -51,12 +45,6 @@ When was the last time you tested your fiber? FiDo can tell you. Do you have fib
 ### Logical Mapping
 We use PHP and javascript to dynamically build a map of your resources as you enter information. With zero set up, you will see your logical network layout updated with YOUR information. The goal of this is to have a page where you can SHOW instead of tell the layout of your network.
 
-### GIS Mapping
-This is a work in progress. Using the Google Maps API we want to have detailed satellite imagery with layers containing YOUR information. The goal of this is to have a page where you can SHOW instead of tell the paths your fiber follows. Need a new cable pulled? Print out detailed images of the path from start to finish.
-
-### Mapping Building Interiors Level by Level
-This is a work in progress. Our current plan is to allow users to map out every pathway and resources on each floor in a building and store this information in a database with floor maps on the backend. This is going to be a challenge, but if we manage it FiDo will be even more useful.
-
 ### Intelligent Data Display
 A big focus on FiDo is giving you intelligent data. Intelligent Data means we don’t just use tables to spew all your information at you. We want you to have everything you need to make a good decision.
 
@@ -69,6 +57,21 @@ You end up spending less time digging through useless information and more time 
 
 ### Dynamic Reports
 Using intelligent data (we talked about that already) FiDo generates reports to tell you what you WANT to know. We are working on making this feature more customizable at the moment, but already we can see the rate at which new information is being added to the database and the distribution of that information. We're excited to add more reporting features in the future.
+
+
+## Future Features
+* More modular design to allow quick customization of individual sections of the front end.
+* Update path module to automatically calculates most efficient route for new fiber.
+* Update path module to automatically calculate loss and cable requirements.
+* Add GIS mapping module 
+* Add interior level by level mapping module 
+
+
+### GIS Mapping
+This is a work in progress. Using the Google Maps API we want to have detailed satellite imagery with layers containing YOUR information. The goal of this is to have a page where you can SHOW instead of tell the paths your fiber follows. Need a new cable pulled? Print out detailed images of the path from start to finish.
+
+### Interior Level by Level Mapping 
+This is a work in progress. Our current plan is to allow users to map out every pathway and resources on each floor in a building and store this information in a database with floor maps on the backend. This is going to be a challenge, but if we manage it FiDo will be even more useful.
 
 ### More Information
 For more information about FiDo, contact Seth Timmons at timmseth@isu.edu .
