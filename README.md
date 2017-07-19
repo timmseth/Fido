@@ -14,13 +14,14 @@ FiDo can store, analyze, and help you make better decisions about your fiber opt
 
 For a more information, keep reading.
 
+-----------------------------
+
 ## Current Features
 * Easy set up and configuration.
 * Simple, intuitive, and tablet-ready interface.
 * Provides a centralized record (easy automated backups).
 * Allows for comparison of "optimal conditions" and current conditions.
 * Works great with PhpMyAdmin.
-
 
 ## What it accomplishes:
 ### Complete C.R.U.D. Management of Fiber Optic Resources.
