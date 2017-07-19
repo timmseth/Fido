@@ -1,20 +1,16 @@
 # FiDo
 
 ## License
-FiDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License (version 3) as published by
-the Free Software Foundation.
+FiDo is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License (version 3) as published by the Free Software Foundation.
 
-FiDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+FiDo is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with FiDo.  If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
+You should have received a copy of the GNU General Public License along with FiDo.  
+If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
 
 ## Purpose
-FiDo can store, analyze, and help you make better decisions about your fiber optic resources. Using a MySQL and PHP backend with the latest techlogies driving the frontend, this web application can be put on most standard web servers. Once set up, this allows you to access your data from anywhere, and because Fido is tablet friendly this includes out in the field.
+FiDo can store, analyze, and help you make better decisions about your fiber optic resources. Using a MySql and PHP backend with the latest technologies driving the frontend, this web application can be put on most standard web servers. Once set up, this allows you to access your data from anywhere, and because Fido is tablet friendly this includes out in the field.
 
 For a more information, keep reading.
 
@@ -22,7 +18,7 @@ For a more information, keep reading.
 * Simple, intuitive, and tablet-ready interface.
 * Easy set up and configuration.
 * Provides a centralized record (easy automated backups).
-* Works great with PHPMyAdmin.
+* Works great with PhpMyAdmin.
 * Automatically calculates most efficient route for new fiber.
 * Automatically calculates loss and cable requirements.
 * Allows for comparison of "optimal conditions" and current conditions.
@@ -31,7 +27,7 @@ For a more information, keep reading.
 
 ## What it accomplishes:
 ### Complete C.R.U.D. Management of Fiber Optic Resources.
-C.R.U.D. stands for "Create.Read.Update.Delete.".<br />
+C.R.U.D. stands for "Create. Read. Update. Delete.".<br />
 Resources are organized hierarchically as follows:
 ```
 Building
@@ -41,7 +37,7 @@ Building
         |Cabinet (Fiber Module Housing)
           |Panel (Fiber Module)
             |Port (Fiber Port)
-              |Strand (Individual Fiber Strands Conencted to Port Boot)
+              |Strand (Individual Fiber Strands Connected to Port Boot)
               |Jumper (Individual Fiber Strands Connected to Port Front)
 ```
 This design relies on a relational MySQL database that ties everything together on the backend. Once all the information has been entered into FiDo these relations allow for easy "drill down" when troubleshooting problems or exploring your resources.
@@ -50,7 +46,7 @@ This design relies on a relational MySQL database that ties everything together 
 When was the last time you tested your fiber? FiDo can tell you. Do you have fiber that needs to be replaced? Fido can tell you. FiDo stores and checks the attenuation every time you test your fiber. Using manufacturer standards FiDo will automatically compare the measured attenuation to the expected attenuation and display whether or not stands are in tolerance.
 
 ### Logical Mapping
-We use php and javacsript to dynamically build a map of your resources as you enter information. Wiuth zero set up, you will see your logical network layout updated with YOUR information. The goal of this is to have a page where you can SHOW instead of tell the layout of your network.
+We use PHP and javascript to dynamically build a map of your resources as you enter information. With zero set up, you will see your logical network layout updated with YOUR information. The goal of this is to have a page where you can SHOW instead of tell the layout of your network.
 
 ### GIS Mapping
 This is a work in progress. Using the Google Maps API we want to have detailed satellite imagery with layers containing YOUR information. The goal of this is to have a page where you can SHOW instead of tell the paths your fiber follows. Need a new cable pulled? Print out detailed images of the path from start to finish.
@@ -59,7 +55,7 @@ This is a work in progress. Using the Google Maps API we want to have detailed s
 This is a work in progress. Our current plan is to allow users to map out every pathway and resources on each floor in a building and store this information in a database with floor maps on the backend. This is going to be a challenge, but if we manage it FiDo will be even more useful.
 
 ### Intelligent Data Display
-A big focus on FiDo is giving you intelligent data. Intelligent Data means we dont just use tables to spew all your information at you. We want you to have everything you need to make a good decision.
+A big focus on FiDo is giving you intelligent data. Intelligent Data means we don’t just use tables to spew all your information at you. We want you to have everything you need to make a good decision.
 
 We show you what you need when you need it:
 * Responsive Tables
