@@ -58,6 +58,7 @@ You end up spending less time digging through useless information and more time 
 ### Dynamic Reports
 Using intelligent data (we talked about that already) FiDo generates reports to tell you what you WANT to know. We are working on making this feature more customizable at the moment, but already we can see the rate at which new information is being added to the database and the distribution of that information. We're excited to add more reporting features in the future.
 
+-----------------------------
 
 ## Future Features
 * More modular design to allow quick customization of individual sections of the front end.
