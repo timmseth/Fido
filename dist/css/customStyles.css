@@ -1,0 +1,325 @@
+/*
++==============================+
+|                              |
+| ███████╗██╗██████╗  ██████╗  |
+| ██╔════╝██║██╔══██╗██╔═══██╗ |
+| █████╗  ██║██║  ██║██║   ██║ |
+| ██╔══╝  ██║██║  ██║██║   ██║ |
+| ██║     ██║██████╔╝╚██████╔╝ |
+| ╚═╝     ╚═╝╚═════╝  ╚═════╝  |
++==============================+=========================================+
+| Description: FiDo is a web app used to manage fiber optic resources.   |
+| Author: Seth Timmons                                                   |
++==============================+=========================================+
+| This file is part of FiDo.                                             |
+|                                                                        |
+| FiDo is free software: you can redistribute it and/or modify           |
+| it under the terms of the GNU General Public License as published by   |
+| the Free Software Foundation, either version 3 of the License, or      |
+| (at your option) any later version.                                    |
+|                                                                        |
+| FiDo is distributed in the hope that it will be useful,                |
+| but WITHOUT ANY WARRANTY; without even the implied warranty of         |
+| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          |
+| GNU General Public License for more details.                           |
+|                                                                        |
+| You should have received a copy of the GNU General Public License      |
+| along with FiDo.  If not, see <http://www.gnu.org/licenses/>.          |
+|                                                                        |
++========================================================================+
+*/
+
+.panelChart{
+	background: #333;
+}
+
+
+/*Building Map START*/
+#viz2{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: auto;
+	padding-right: auto;
+}
+.link {
+  stroke: #ccc;
+}
+.link line {
+  stroke: #fff;
+  stroke-opacity: 0.6;
+}
+.links {
+  stroke: #ccc;
+}
+.links line {
+  stroke: #fff;
+  stroke-opacity: 0.6;
+}
+.node text {
+	pointer-events: none;
+	font: 10px sans-serif;
+}
+
+text {
+    fill: white;
+    padding: 2px;
+    background: #777;
+}
+
+#viz2 svg {
+    position: relative;
+}
+
+#viz2 svg path {
+    fill: #ffd800;
+    fill-opacity: .2;
+}
+
+#viz2 svg path:hover {
+    fill: brown;
+    fill-opacity: .7;
+}
+
+#map {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #333;
+    
+}
+
+/*Building Map END*/
+tr.group,
+tr.group:hover {
+    background-color: #ddd !important;
+}
+
+ul#side-menu > li.separator {
+    padding: 10px 15px;
+    font-variant:small-caps;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(208, 208, 207, 0.7);
+}
+
+#currentWorkspaceContents .help-block{
+	color: #ededed;
+	text-shadow: 1px 2px 3px black;
+}
+
+a.addJumperClass,
+a.addStrandClass{
+	cursor: pointer;
+}
+
+table.panelRep > tbody > tr > td,
+table.panelRep > thead > tr > th{
+	border:thin black solid;
+	border-bottom: 3px black solid;
+}
+
+table.panelRep > thead > tr > th:nth-child(even),
+table.panelRep > tbody > tr > td:nth-child(even){
+	border-right:3px black solid;
+}
+
+
+table.panelRep > tbody > tr > td:last-of-type,
+table.panelRep > thead > tr > th:last-of-type{
+	border-right:thin black solid;
+}
+
+table.panelRep > tbody > tr,
+table.panelRep > thead > tr{
+	border:3px black solid;
+}
+
+table.panelRep > thead > tr > th:nth-child(odd),
+table.panelRep > tbody > tr > td:nth-child(odd){
+	border-right:2px black dotted;
+}
+
+div.col-xs-12 > div > div > div.noBorder{
+	border: none;
+}
+
+button.noPaddingNoBorderButton{
+	border: none;
+	padding: none;
+	padding-left:0;
+	padding-right:0;
+}
+
+td.border-left{
+	border-left: thin black solid;
+}
+
+td.border-right{
+	border-right: thin black solid;
+}
+
+table.portRepresentation thead tr th{
+	text-align: center;
+}
+
+
+
+
+nav.navbar,
+body{
+	background: #333 url('../img/footer_lodyas.png');
+}
+
+#wrapper > nav > div.navbar-header > a{
+	color: orange;
+}
+
+div#page-wrapper{
+	background: #ededed url('../img/squared_metal.png');
+}
+
+ul#side-menu{
+	background: #333 url('../img/footer_lodyas.png');
+
+}
+
+ul.nav-tabs{
+	background: transparent;
+	padding-bottom: 1px;
+}
+ul#side-menu > li > a,
+ul#side-menu > li.active > a,
+ul.nav-tabs > li > a,
+ul.nav-tabs > li.active > a{
+	background: #333 url('../img/footer_lodyas.png');
+	color: #fff;
+	border-radius:5px;
+	margin-bottom: 2px;
+}
+
+ul#side-menu >li:hover > a,
+ul#side-menu >li.active > a:hover,
+ul#side-menu >li.active > a:focus,
+ul#side-menu >li.active > a:focus,
+ul#side-menu >li.active > a:active,
+ul#side-menu >li,
+ul.nav-tabs > li:hover > a,
+ul.nav-tabs > li.active > a,
+ul.nav-tabs > li.active > a:hover,
+ul.nav-tabs > li.active > a:focus,
+ul.nav-tabs > li.active > a:active,
+ul.nav-tabs > li > a.active{
+	/*background: rgba(255, 255, 255, 0.2);*/
+	background: rgba(0, 0, 0, 0.4);
+	color: #fff;
+}
+
+
+
+/*Cabinet Representation*/
+
+/*Panel Nav*/
+ul.nav > li.disabled > a.text-black{
+	color: #000;
+}
+
+.divRepPanel{
+text-align: center;
+border: 1px solid #222;
+}
+
+.panel-panel > .panel-body > div{
+	border-top: thin solid black;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.panel-panel > .panel-body > div > div{
+	padding-top: 10px;
+	padding-bottom:0px;
+}
+.panel-panel > .panel-body > div:first-child{
+	border-top: none;
+}
+
+.panel-panel > .panel-body > div > div.notFirstRow{
+	border-top: thick solid black;
+}
+
+.cabinetRepContainer{
+	margin-top: 50px;
+}
+
+ .panel-panel > .panel-body > div{
+	border: thin solid black;
+}
+
+
+@media(min-width:1048px) {
+ .panel-panel > .panel-body > div > div:nth-of-type(even){
+	border-left: thin solid black;
+}
+.panel-panel > .panel-body > div > div:nth-of-type(even){
+	border-left: thin solid black;
+}
+
+}
+
+
+.tab-pane:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+
+
+div.btn-group{
+	border: none;
+}
+
+
+
+#currentWorkspaceParent{
+background: #333 url('../img/blueprintPaper.png') repeat;
+color: white;
+}
+
+
+/*
+
+@media screen and (max-width: 768px) {
+	.page-header {
+        font-size: 2em;
+    }
+}
+
+
+*/
+
+
+
+
+/*size fixes for mobile*/
+h1{
+	font-size: 2em;
+}
+h2{
+	font-size: 1.75em;
+}
+h3{
+	font-size: 1.50em;
+}
+h4{
+	font-size: 1.25em;
+}
+h5{
+	font-size: 1em;
+}
+p{
+	font-size: 1em;
+}
+
+
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}

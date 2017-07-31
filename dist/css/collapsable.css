@@ -1,0 +1,48 @@
+/*
++==============================+
+|                              |
+| ███████╗██╗██████╗  ██████╗  |
+| ██╔════╝██║██╔══██╗██╔═══██╗ |
+| █████╗  ██║██║  ██║██║   ██║ |
+| ██╔══╝  ██║██║  ██║██║   ██║ |
+| ██║     ██║██████╔╝╚██████╔╝ |
+| ╚═╝     ╚═╝╚═════╝  ╚═════╝  |
++==============================+=========================================+
+| Description: FiDo is a web app used to manage fiber optic resources.   |
+| Author: Seth Timmons                                                   |
++==============================+=========================================+
+| This file is part of FiDo.                                             |
+|                                                                        |
+| FiDo is free software: you can redistribute it and/or modify           |
+| it under the terms of the GNU General Public License as published by   |
+| the Free Software Foundation, either version 3 of the License, or      |
+| (at your option) any later version.                                    |
+|                                                                        |
+| FiDo is distributed in the hope that it will be useful,                |
+| but WITHOUT ANY WARRANTY; without even the implied warranty of         |
+| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          |
+| GNU General Public License for more details.                           |
+|                                                                        |
+| You should have received a copy of the GNU General Public License      |
+| along with FiDo.  If not, see <http://www.gnu.org/licenses/>.          |
+|                                                                        |
++========================================================================+
+*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; }
+table { border-collapse:collapse; border-spacing:0; }
+fieldset,img { border:0; }
+address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal; }
+caption,th { text-align:left; }
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:normal; }
+q:before,q:after { content:''; }
+abbr,acronym { border:0; }
+
+body { background: #fff; }
+/* optional Container STYLES */
+.chart { height: 600px; margin: 5px; width: 900px; }
+.Treant > .node { padding: 3px; border: 1px solid #484848; border-radius: 3px; }
+.Treant > .node img { width: 100%; height: 100%; }
+
+.Treant .collapse-switch { width: 100%; height: 100%; border: none; }
+.Treant .node.collapsed { background-color: #DEF82D; }
+.Treant .node.collapsed .collapse-switch { background: none; }
