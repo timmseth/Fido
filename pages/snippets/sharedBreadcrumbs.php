@@ -61,6 +61,13 @@ if (isset($thisPage)) {
                 ';
                 break;
 
+            case 'equipment':
+                echo '
+                <li><a href="index.php">Home</a></li>
+                <li class="active">Equipment Management</li>
+                ';
+                break;
+
             case 'tutorials':
                 echo '
                 <li><a href="module_tutorials.php">Home</a></li>

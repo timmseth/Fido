@@ -33,6 +33,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
+//require common php functions
+include('./commonFunctions.php');
 //include snippet - shared head html
 include('snippets/sharedHead.php');
 
@@ -127,6 +129,83 @@ include('snippets/sharedBreadcrumbs.php');
 
 
 
+   //Get Cabinet, Panel, Port, Strand, and Jumper Details.
+    $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    try {
+        //prepare query
+        $stmt = $db->prepare('SELECT building.number, building.name, location.level AS locLevel, location.description, storageunit.label AS storageLabel, cabinet.cabinet_UID,cabinet.label,cabinet.panelCapacity,panel.panel_UID,panel.position,panel.portCapacity,panel.type,panel.notes AS panelNotes,port.port_UID,port.number,port.strandStatus,port.jumperStatus,strand.strand_UID,strand.length,strand.mode,strand.coreSize,strand.wavelength,strand.inTolerance,strand.spliceCount,strand.connectorPairsCount,strand.expectedLoss,strand.lastMeasuredLoss,strand.fk_port_UID_a AS strand_port_a,strand.fk_port_UID_b AS strand_port_b,strand.notes AS strandNotes, jumper.jumper_UID,jumper.fk_port_UID_a AS jumper_port_a,jumper.fk_port_UID_b AS jumper_port_b,jumper.fk_equipment_UID,jumper.notes AS jumperNotes,equipment.equipment_UID AS equipmentUID, equipment.name AS equipmentName FROM port LEFT OUTER JOIN panel ON panel.panel_UID=port.fk_panel_UID LEFT OUTER JOIN cabinet ON cabinet.cabinet_UID=panel.fk_cabinet_UID LEFT OUTER JOIN storageunit ON storageunit.storageUnit_UID=cabinet.fk_storageUnit_UID LEFT OUTER JOIN location ON location.location_UID=storageunit.fk_location_UID LEFT OUTER JOIN building ON building.building_UID=location.fk_building_UID LEFT OUTER JOIN strand ON port.fk_strand_UID=strand.strand_UID LEFT OUTER JOIN jumper ON port.fk_jumper_UID=jumper.jumper_UID LEFT OUTER JOIN equipment ON jumper.fk_equipment_UID=equipment.equipment_UID');
+        //bind parameters
+        $stmt->bindParam(':cabinet_UID', $thisCabinetUID);
+        //execute query
+        $stmt->execute();
+        //Store in multidimensional array
+        //$iPorts=1;
+        $port_UID_to_Details=array();
+
+        foreach($stmt as $row) {
+
+        
+$port_UID_to_Details[$row['port_UID']]['building']=$row['name'];
+$port_UID_to_Details[$row['port_UID']]['level']=$row['locLevel'];
+$port_UID_to_Details[$row['port_UID']]['location']=$row['description'];
+$port_UID_to_Details[$row['port_UID']]['storageUnit']=$row['storageLabel'];
+$port_UID_to_Details[$row['port_UID']]['cabinet']=$row['label'];
+$port_UID_to_Details[$row['port_UID']]['panel']=$row['position'];
+$port_UID_to_Details[$row['port_UID']]['port']=$row['number'];
+
+/*
+
+        //get cabinet details
+        $cabinetPortDetails[$row['cabinet_UID']]['cabinet_UID']=$row['cabinet_UID'];
+        $cabinetPortDetails[$row['cabinet_UID']]['label']=$row['label'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panelCapacity']=$row['panelCapacity'];
+        //get each panel details
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['panel_UID']=$row['panel_UID'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['position']=$row['position'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['portCapacity']=$row['portCapacity'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['type']=$row['type'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['notes']=$row['panelNotes'];
+        //get port details
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['port_UID']=$row['port_UID'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['number']=$row['number'];
+        //strand details
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['status']=$row['strandStatus'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['strand_UID']=$row['strand_UID'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['length']=$row['length'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['mode']=$row['mode'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['coreSize']=$row['coreSize'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['wavelength']=$row['wavelength'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['inTolerance']=$row['inTolerance'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['spliceCount']=$row['spliceCount'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['connectorPairsCount']=$row['connectorPairsCount'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['expectedLoss']=$row['expectedLoss'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['lastMeasuredLoss']=$row['lastMeasuredLoss'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['strand_port_a']=$row['strand_port_a'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['strand_port_b']=$row['strand_port_b'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['strandDetails']['notes']=$row['strandNotes'];
+        //jumper details
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['jumper_UID']=$row['jumper_UID'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['status']=$row['jumperStatus'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['jumper_port_a']=$row['jumper_port_a'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['jumper_port_b']=$row['jumper_port_b'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['fk_equipment_UID']=$row['fk_equipment_UID'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['notes']=$row['jumperNotes'];
+        //equipment details
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['equipmentDetails']['equipment_UID']=$row['equipmentUID'];
+        $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['equipmentDetails']['name']=$row['equipmentName'];
+*/
+        }
+    }
+    //Catch Errors (if errors)
+    catch(PDOException $e){
+        //Report Error Message(s)
+        generateAlert('danger','Could not get global port details.<br />'.$e->getMessage());
+    }
+
+
+//debugPrintData($port_UID_to_Details);
 
 
 
@@ -1661,7 +1740,11 @@ if (isset($_GET['uid']) && $_GET['uid']!=''){
         $stmt->execute();
         //Store in multidimensional array
         //$iPorts=1;
+
         foreach($stmt as $row) {
+
+
+
         //get cabinet details
         $cabinetPortDetails[$row['cabinet_UID']]['cabinet_UID']=$row['cabinet_UID'];
         $cabinetPortDetails[$row['cabinet_UID']]['label']=$row['label'];
@@ -1925,7 +2008,28 @@ echo '
 
 echo '
 <!-- EDIT DETAILS -->  
+
+<p>
+<b>This strand connects to:</b><br />
+<b>Building:</b> '.$port_UID_to_Details[$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['strand_port_b']]['building'].'<br />
+<b>Level:</b> '.$port_UID_to_Details[$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['strand_port_b']]['level'].'<br />
+<b>Location:</b> '.$port_UID_to_Details[$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['strand_port_b']]['location'].'<br />
+<b>Storage Unit:</b> '.$port_UID_to_Details[$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['strand_port_b']]['storageUnit'].'<br />
+<b>Cabinet:</b> '.$port_UID_to_Details[$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['strand_port_b']]['cabinet'].'<br />
+<b>Panel:</b> '.$port_UID_to_Details[$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['strand_port_b']]['panel'].'<br />
+<b>Port:</b> '.$port_UID_to_Details[$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['strand_port_b']]['port'].'<br />
+<b>Strand Details:</b> ('.$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['coreSize'].' core, '.$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['mode'].', '.$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['ports'][$iPorts]['strandDetails']['length'].' ft)<br />
+</p>
+
+
+
+
 <a class="btn btn-block btn-primary" data-toggle="collapse" data-parent="#accordion" href="#editDetailsForm'.$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['panel_UID'].''.$iPorts.'" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-fw fa-edit"></i> Toggle Edit Details Form</a>
+
+
+
+
+
 <div id="editDetailsForm'.$cabinetPortDetails[$thisCabinetUID]['panels'][$panelNdx]['panel_UID'].''.$iPorts.'" class="text-center collapse " role="tabpanel" aria-labelledby="">
 <div class="well well-lg">
 <p class="text-right">
@@ -2195,6 +2299,10 @@ echo '
         //execute query
         $stmt->execute();
         foreach($stmt as $row) {
+
+
+
+
             $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['jumper_port_a_details']['port_UID']=$jumperPort_a_UID;
             $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['jumper_port_a_details']['storageUnit']=$row['storageUnitLabel'];
             $cabinetPortDetails[$row['cabinet_UID']]['panels'][$row['position']]['ports'][$row['number']]['jumperDetails']['jumper_port_a_details']['cabinet']=$row['label'];

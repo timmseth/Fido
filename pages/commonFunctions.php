@@ -32,38 +32,31 @@
 ?>
 <?php
 function writeAlert($alertType,$alertText){
-
-switch ($alertType) {
-	case 'success':
-		echo '<div class="alert alert-success">';
-		echo '<strong>Success!</strong> ';
-		echo $alertText;
-		break;
-	
-	case 'info':
-		echo '<div class="alert alert-info">';
-		echo '<strong>Info!</strong> ';
-		echo $alertText;
-		break;
-	
-	case 'warning':
-		echo '<div class="alert alert-warning">';
-		echo '<strong>Warning!</strong> ';
-		echo $alertText;
-		break;
-
-	case 'danger':
-		echo '<div class="alert alert-danger">';
-		echo '<strong>Error!</strong> ';
-		echo $alertText;
-		break;
-	
-	default:
-		# code...
-		break;
-}
-echo '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
-echo '</div>';
+	//switch between alert types
+	switch ($alertType) {
+		case 'success':
+			echo '<div class="alert alert-success">';
+			echo '<strong>Success!</strong> ';
+			break;
+		case 'info':
+			echo '<div class="alert alert-info">';
+			echo '<strong>Info!</strong> ';
+			break;
+		case 'warning':
+			echo '<div class="alert alert-warning">';
+			echo '<strong>Warning!</strong> ';
+			break;
+		case 'danger':
+			echo '<div class="alert alert-danger">';
+			echo '<strong>Error!</strong> ';
+			break;
+		default:
+			break;
+	}
+	//write alert text & dismissal
+	echo $alertText;
+	echo '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+	echo '</div>';
 }
 
 function writeHeader($textString){
@@ -119,6 +112,110 @@ function getTotalElementCounts(){
 	$totalJumpers=getTotalFromDatabase('jumpers');
 }               
 
+//Debug Print POST/GET data function
+function getTotalFromDatabase($elementToCount){
+    global $dbHost;
+    global $dbName;
+    global $dbUser;
+    global $dbPassword;
+    $temp_foundRecords=0;
+    switch($elementToCount){
+        //COUNT BUILDINGS
+        case 'buildings':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM building order by number asc');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        //COUNT locations
+        case 'locations':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM location');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        //COUNT storageUnits
+        case 'storageUnits':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM storageunit');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        //COUNT cabinets
+        case 'cabinets':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM cabinet');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        //COUNT panels
+        case 'panels':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM panel');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        //COUNT ports
+        case 'ports':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM port');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        //COUNT STRANDS
+        case 'strands':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM strand');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        //COUNT JUMPERS
+        case 'jumpers':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM jumper');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        //COUNT PATHS
+        case 'paths':
+            $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            try {
+            $stmt = $db->prepare('SELECT * FROM path');
+            $stmt->execute();
+            $temp_foundRecords=$stmt->rowCount();
+            }catch(PDOException $e){}
+            break;
+        default:
+            echo '<div class="alert alert-danger">Error!<br />An unhandeled exception has occurred.</div>';
+            break;
+    }
+    return $temp_foundRecords;
+}
 
 
 ?>

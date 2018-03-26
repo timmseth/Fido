@@ -34,10 +34,14 @@
 <html lang="en">
 
 <?php 
+//require common php functions
+include('./commonFunctions.php');
 //include snippet - shared head html
 include('snippets/sharedHead.php');
-
-
+//write page start snippet
+$thisPage='grc';
+//generatePageStartHtml($thisPage);
+//writeHeader('FiDo Guided Record Creation');
 
 
 

@@ -29,11 +29,19 @@
 |                                                                        |
 +========================================================================+
 */
+//NOTE THIS PAGE WILL FAIL TO DISPLAY MAP LINKS PROPERLY IF MYSQL ONLY_FULL_GROUP_BY IS TRUE
+//You should be ale to fix this with this command:
+//mysql > SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+//you can also set this value in phpmyadmin or persistent change in my.cnf (something like sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION")
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php 
+//require common php functions
+include('./commonFunctions.php');
+//include snippet - shared head html
 include('snippets/sharedHead.php');
+
 
 //get totals from database.
 $totalBuildings=getTotalFromDatabase('buildings');
@@ -150,6 +158,8 @@ try {
   }
 }
 catch(PDOException $e){
+//Report Error Message(s)
+generateAlert('danger','Error:<br />'.$e.'.');
 }
 
 //remove duplicates
@@ -288,6 +298,10 @@ echo '</pre>';
 <svg id="viz2" width="100%" height="800"></svg>
 
 <?php
+
+//print_r($linksArray);
+
+
 $tempConsoleString='var links = [';
 foreach ($linksArray as $key => $value) {
   if ($value['source']<100 && $value['destination']<100) {

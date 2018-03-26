@@ -32,6 +32,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <?php 
 //require common php functions
 include('./commonFunctions.php');
@@ -41,10 +42,8 @@ include('snippets/sharedHead.php');
 $thisPage='home';
 generatePageStartHtml($thisPage);
 writeHeader('FiDo Dashboard');
-
 //write jumbotron
 writeJumbo('Guided Record Creation','Click the button below to create a new Building, Location, Storage Unit, Cabinet, Panel, Port, Strand, or Jumper.','Get Started!','guidedRecordCreation.php');
-
 ?>
 
 <div class="row">

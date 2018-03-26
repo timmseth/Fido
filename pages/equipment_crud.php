@@ -34,8 +34,17 @@
 <html lang="en">
 
 <?php 
+//require common php functions
+include('./commonFunctions.php');
 //include snippet - shared head html
 include('snippets/sharedHead.php');
+//write page start snippet
+$thisPage='equipment';
+//generatePageStartHtml($thisPage);
+//writeHeader('FiDo Guided Record Creation');
+
+//include snippet - shared head html
+//include('snippets/sharedHead.php');
 
 //get totals buildings from database.
 $totalBuildings=getTotalFromDatabase('buildings');
@@ -68,7 +77,7 @@ $totalPaths=getTotalFromDatabase('paths');
 <div id="wrapper">
     <!-- Navigation -->
     <?php
-    $thisPage='eqipment';
+    //$thisPage='equipment';
     ?>
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">   
         <?php include('snippets/sharedTopNav.php');?>
@@ -78,6 +87,8 @@ $totalPaths=getTotalFromDatabase('paths');
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid animated fadeIn">
+
+        <?php include('snippets/sharedBreadcrumbs.php');?>
 
 
             <div class="row">
