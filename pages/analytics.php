@@ -39,7 +39,7 @@ include('./commonFunctions.php');
 //include snippet - shared head html
 include('snippets/sharedHead.php');
 //write page start snippet
-$thisPage='home';
+$thisPage='analytics';
 generatePageStartHtml($thisPage);
 writeHeader('FiDo Analytics');
 ?>
@@ -237,7 +237,7 @@ writeHeader('FiDo Analytics');
         <div class="panel-heading">
         <h4 class="text-center">Monthly Data Entry</h4>
         </div>
-        <div class="panel-body">
+        <div class="panel-body noPadding">
             <div class="panelChart" id="dataEntryRecords"></div>
         </div>
     </div>
@@ -253,7 +253,7 @@ writeHeader('FiDo Analytics');
         <div class="panel-heading">
         <h4 class="text-center">Jumper Port Availability</h4>
         </div>
-        <div class="panel-body">
+        <div class="panel-body noPadding">
             <div class="panelChart" id="jumperDonut"></div>
         </div>
     </div>
@@ -264,7 +264,7 @@ writeHeader('FiDo Analytics');
         <div class="panel-heading">
         <h4 class="text-center">Strand Port Availability</h4>
         </div>
-        <div class="panel-body">
+        <div class="panel-body noPadding">
             <div class="panelChart" id="strandDonut"></div>
         </div>
     </div>
@@ -275,7 +275,7 @@ writeHeader('FiDo Analytics');
         <div class="panel-heading">
         <h4 class="text-center">Panel Type Distribution</h4>
         </div>
-        <div class="panel-body">
+        <div class="panel-body noPadding">
             <div class="panelChart" id="panelTypeDonut"></div>
         </div>
     </div>

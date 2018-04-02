@@ -39,7 +39,7 @@ include('./commonFunctions.php');
 //include snippet - shared head html
 include('snippets/sharedHead.php');
 //write page start snippet
-$thisPage='home';
+$thisPage='dashboard';
 generatePageStartHtml($thisPage);
 writeHeader('FiDo Dashboard');
 //write jumbotron

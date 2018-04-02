@@ -40,10 +40,58 @@ if (isset($thisPage)) {
                 ';
                 break;
 
+            case 'browseAll':
+                echo '
+                <li><a href="index.php">Home</a></li>
+                <li class="active">Direct Browse</li>
+                ';
+                break;
+
+
+
+            case 'crud':
+                if(isset($_POST['buildingUID']) && isset($_POST['buildingName'])){
+                echo '
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="module_crud.php">Browse Database</a></li>
+                    <li class="active"><a href="guidedRecordCreation.php?b='.$_POST['buildingUID'].'">'.$_POST['buildingName'].'</a></li>
+                    ';
+                    /*
+                    <li><a href="module_crud.php">Manage Cabinet Contents</a></li>
+                    <li class="readonly"><a href="guidedRecordCreation.php?b=0248">Test Building</a></li>
+                    <li class="readonly"><a href="guidedRecordCreation.php?b=0248&le=0">Level 0</a></li>
+                    <li class="readonly"><a href="guidedRecordCreation.php?b=0248&le=0&lo=0228">Test Room</a></li>
+                    <li class="readonly"><a href="guidedRecordCreation.php?b=0248&le=0&lo=0228&sto=0295">000-00-01</a></li>
+                    <li class="readonly">005</li>
+                    */
+                }
+                else{
+                echo '
+                    <li><a href="index.php">Home</a></li>
+                    <li class="active">Browse Database</li>
+                    ';
+                    /*
+                    <li><a href="module_crud.php">Manage Cabinet Contents</a></li>
+                    <li class="readonly"><a href="guidedRecordCreation.php?b=0248">Test Building</a></li>
+                    <li class="readonly"><a href="guidedRecordCreation.php?b=0248&le=0">Level 0</a></li>
+                    <li class="readonly"><a href="guidedRecordCreation.php?b=0248&le=0&lo=0228">Test Room</a></li>
+                    <li class="readonly"><a href="guidedRecordCreation.php?b=0248&le=0&lo=0228&sto=0295">000-00-01</a></li>
+                    <li class="readonly">005</li>
+                    */
+                }
+                break;
+
             case 'analytics':
                 echo '
                 <li><a href="index.php">Home</a></li>
                 <li class="active">Analytics</li>
+                ';
+                break;
+
+            case 'dashboard':
+                echo '
+                <li><a href="index.php">Home</a></li>
+                <li class="active">Dashboard</li>
                 ';
                 break;
 
@@ -57,23 +105,39 @@ if (isset($thisPage)) {
             case 'guidedCrud':
                 echo '
                 <li><a href="index.php">Home</a></li>
-                <li class="active">Guided Record Creation</li>
+                <li class="active">Guided C.R.U.D.</li>
                 ';
                 break;
 
             case 'equipment':
                 echo '
                 <li><a href="index.php">Home</a></li>
-                <li class="active">Equipment Management</li>
+                <li class="active">Equipment C.R.U.D.</li>
                 ';
                 break;
 
             case 'tutorials':
                 echo '
-                <li><a href="module_tutorials.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li class="active">Tutorials</li>
                 ';
                 break;
+
+            case 'mapGeo':
+                echo '
+                <li><a href="index.php">Home</a></li>
+                <li class="active">IBF Map (Geo)</li>
+                ';
+                break;
+
+            case 'mapLogical':
+                echo '
+                <li><a href="index.php">Home</a></li>
+                <li class="active">IBF Map (Logical)</li>
+                ';
+                break;
+
+
 
             case 'manageCabinetContents':
                 if (isset($breadcrumbDetails["buildingUID"]) && isset($breadcrumbDetails["locationUID"]) && isset($breadcrumbDetails["storageUnitUID"]) && isset($breadcrumbDetails["cabinetLabel"])) {

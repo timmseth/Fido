@@ -93,7 +93,7 @@ $totalPaths=getTotalFromDatabase('paths');
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Equipment Manager</h1>
+                    <h1 class="page-header">Equipment CRUD <small> (<b>C</b>reate. <b>R</b>ead. <b>U</b>pdate. <b>D</b>elete.)</small></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

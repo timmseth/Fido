@@ -251,7 +251,9 @@ border: 1px solid #222;
  .panel-panel > .panel-body > div{
 	border: thin solid black;
 }
-
+.panel-body.noPadding{
+	padding: 0px;
+}
 
 @media(min-width:1048px) {
  .panel-panel > .panel-body > div > div:nth-of-type(even){

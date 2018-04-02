@@ -40,6 +40,7 @@ include('./commonFunctions.php');
 include('snippets/sharedHead.php');
 //write page start snippet
 $thisPage='grc';
+//
 //generatePageStartHtml($thisPage);
 //writeHeader('FiDo Guided Record Creation');
 
@@ -322,8 +323,9 @@ if (isset($_POST['panelAction']) && $_POST['panelAction']=='create') {
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Guided Record Management.</h1>
-                       
+                        <h1 class="page-header">Guided CRUD <small> (<b>C</b>reate. <b>R</b>ead. <b>U</b>pdate. <b>D</b>elete.)</small></h1>
+
+                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

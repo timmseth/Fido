@@ -39,17 +39,19 @@ include('./commonFunctions.php');
 //include snippet - shared head html
 include('snippets/sharedHead.php');
 //write page start snippet
-$thisPage='home';
+$thisPage='crud';
 generatePageStartHtml($thisPage);
-writeHeader('Database<small> (<b>C</b>reate. <b>R</b>ead. <b>U</b>pdate. <b>D</b>elete.)</small>');
 
 
 
 
 
-
-
-
+writeHeader('Browse Database<small> (Drill Down)</small>');
+/*
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+*/
 
 
 
@@ -949,6 +951,8 @@ if((!isset($_POST['locationAction']) && !isset($_POST['cabinetAction'])) && ( (!
                 </div>
                 <!-- END create new building -->
 
+        <input class="form-control" type="text" id="buildingTableSearch" name="buildingTableSearch" placeholder="Type to filter the list below in real-time.">
+
             <div class="dataTable_wrapper">
                 <table class="table table-striped table-bordered table-hover table-responsive" id="dataTables-buildings">
                     <thead>
@@ -1281,6 +1285,43 @@ if((!isset($_POST['locationAction']) && !isset($_POST['cabinetAction'])) && ( (!
         ordering: false
     });
 //END panelDisplay DATATABLE
+
+
+
+
+//START custom search fields
+//Building Search
+buildingTable    = $('#dataTables-buildings').DataTable();  
+$('#dataTables-buildings_filter').hide();
+$('#buildingTableSearch').keyup(function(){
+    buildingTable.search($(this).val()).draw() ;
+})
+
+//Location Search
+locationTable    = $('#dataTables-locations').DataTable();  
+$('#dataTables-locations_filter').hide();
+$('#locationTableSearch').keyup(function(){
+    locationTable.search($(this).val()).draw() ;
+})
+
+//Storage Unit Search
+storageUnitTable = $('#dataTables-storageUnits').DataTable();  
+$('#dataTables-storageUnits_filter').hide();
+$('#storageUnitTableSearch').keyup(function(){
+    storageUnitTable.search($(this).val()).draw() ;
+})
+
+//Cabinet Search
+cabinetTable     = $('#dataTables-cabinets').DataTable();  
+$('#dataTables-cabinets_filter').hide();
+$('#cabinetTableSearch').keyup(function(){
+    cabinetTable.search($(this).val()).draw() ;
+})
+//END custom search fields
+
+
+
+
 
 
 

@@ -82,7 +82,7 @@ catch(PDOException $e){
 <body>
 <div id="wrapper">
 <?php
-$thisPage='pathPlanner';
+$thisPage='mapLogical';
 ?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">   
 <?php include('snippets/sharedTopNav.php');?>
@@ -97,9 +97,15 @@ $thisPage='pathPlanner';
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3>Interbuilding Network Map</h3>
+    <h3>Interbuilding Network Map - Logical</h3>
   </div>
   <div class="panel-body">
+
+
+                        <?php
+                        generateAlert('info','This page takes into account all direct interbuilding connections and generates a logical map of the network using d3.js.');
+                        ?>
+
 
     <?php
 $inactiveNodesArray=array();

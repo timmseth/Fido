@@ -172,6 +172,8 @@ echo '
 <!-- END FORM HERE -->
 ';
 
+
+
 /*
 
 <!-- ==================================================================== -->
@@ -265,6 +267,13 @@ echo '
                 </div>
                 <!-- END create new building -->
 ';
+
+
+
+echo '
+        <input class="form-control" type="text" id="locationTableSearch" name="locationTableSearch" placeholder="Type to filter the list below in real-time.">
+';
+
 
 
 //START PANEL BODY
@@ -441,3 +450,39 @@ echo '</div>';
 </div>
 <!-- /.row -->';
 ?>
+
+
+<script type="text/javascript">
+    
+//START custom search fields
+//Building Search
+buildingTable    = $('#dataTables-buildings').DataTable();  
+$('#dataTables-buildings_filter').hide();
+$('#buildingTableSearch').keyup(function(){
+    buildingTable.search($(this).val()).draw() ;
+})
+
+//Location Search
+locationTable    = $('#dataTables-locations').DataTable();  
+$('#dataTables-locations_filter').hide();
+$('#locationTableSearch').keyup(function(){
+    locationTable.search($(this).val()).draw() ;
+})
+
+//Storage Unit Search
+storageUnitTable = $('#dataTables-storageUnits').DataTable();  
+$('#dataTables-storageUnits_filter').hide();
+$('#storageUnitTableSearch').keyup(function(){
+    storageUnitTable.search($(this).val()).draw() ;
+})
+
+//Cabinet Search
+cabinetTable     = $('#dataTables-cabinets').DataTable();  
+$('#dataTables-cabinets_filter').hide();
+$('#cabinetTableSearch').keyup(function(){
+    cabinetTable.search($(this).val()).draw() ;
+})
+//END custom search fields
+
+</script>
+

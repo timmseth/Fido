@@ -33,7 +33,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
+//require common php functions
+include('./commonFunctions.php');
+//include snippet - shared head html
 include('snippets/sharedHead.php');
+//write page start snippet
+$thisPage='mapGeo';
+
+
+//include('snippets/sharedHead.php');
 
 //get totals from database.
 $totalBuildings=getTotalFromDatabase('buildings');
@@ -74,7 +82,7 @@ catch(PDOException $e){
 <body>
 <div id="wrapper">
 <?php
-$thisPage='pathPlanner';
+//$thisPage='mapGeo';
 ?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">   
 <?php include('snippets/sharedTopNav.php');?>
@@ -89,9 +97,17 @@ $thisPage='pathPlanner';
 
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3>Interbuilding Network Map</h3>
+	    <h3>Interbuilding Network Map - Geo</h3>
 	</div>
 	<div class="panel-body">
+
+
+
+                        <?php
+                        generateAlert('danger','This page is currently in a non-functional state. This part of FiDo is under development.');
+                        ?>
+
+
     <?php
     //write building name, latitude, and longitude to file
     $fileWriteContents='';

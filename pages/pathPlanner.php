@@ -33,7 +33,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
+//require common php functions
+include('./commonFunctions.php');
+//include snippet - shared head html
 include('snippets/sharedHead.php');
+//write page start snippet
+$thisPage='pathPlanner';
+
+
+//include('snippets/sharedHead.php');
 
 //get totals from database.
 $totalBuildings=getTotalFromDatabase('buildings');
@@ -74,7 +82,7 @@ catch(PDOException $e){
 <body>
 <div id="wrapper">
 <?php
-$thisPage='pathPlanner';
+//$thisPage='pathPlanner';
 ?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">   
 <?php include('snippets/sharedTopNav.php');?>

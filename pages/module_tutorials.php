@@ -32,10 +32,15 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <?php 
+//require common php functions
+include('./commonFunctions.php');
 //include snippet - shared head html
 include('snippets/sharedHead.php');
+//write page start snippet
+$thisPage='tutorials';
+//include snippet - shared head html
+//include('snippets/sharedHead.php');
 
 //get totals buildings from database.
 $totalBuildings=getTotalFromDatabase('buildings');
@@ -114,7 +119,11 @@ $totalPaths=getTotalFromDatabase('paths');
                     <div class="jumbotron">
                         <h1>FiDo Tutorials</h1>
                         <p>Check out the interactive training modules below for easy step-by-step guides to common FiDo tasks.</p>
-                        <div class="alert alert-danger">This page will take a while to fully load the tutorials below. Sorry about that. It's necessary.</div>
+
+                        <?php
+                        generateAlert('info','This page will take a while to fully load the tutorials below. Sorry about that. It\'s necessary.');
+                        ?>
+
 
 
                     </div>

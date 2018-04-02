@@ -47,13 +47,16 @@
                 </a>
                 </li>
 
-            <li class="separator">Data Entry</li>
+            <li class="separator">Browse Data</li>
 
                 <li>
                 <a href="module_crud.php">
                 <i class="text-primary fa fa-table fa-fw"></i> Browse Database
                 </a>
                 </li>
+
+            <li class="separator">Data Entry</li>
+
 
                 <li>
                 <a href="guidedRecordCreation.php">
@@ -63,7 +66,7 @@
 
                 <li>
                 <a href="equipment_crud.php">
-                <i class="text-primary fa fa-server fa-fw"></i> Manage Equipment
+                <i class="text-primary fa fa-server fa-fw"></i> Equipment C.R.U.D.
                 </a>
                 </li>
 
@@ -72,7 +75,7 @@
                 <li>
                 <a href="interbuildingMapLogical.php">
                 <i class="text-info fa fa-connectdevelop fa-fw"></i> 
-                Logical IBF Map
+                IBF Map (Logical)
                 </a>
                 </li>
 
@@ -90,6 +93,14 @@
                 <i class="text-info fa fa-map fa-fw"></i> IBF Map (Geo)
                 </a>
                 </li>
+
+
+                <li>
+                <a href="module_browse.php">
+                <i class="text-primary fa fa-table fa-fw"></i> Direct Browse 
+                </a>
+                </li>
+
 
             <li class="separator">Help</li>
 
