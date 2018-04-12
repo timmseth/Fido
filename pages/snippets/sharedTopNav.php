@@ -31,7 +31,7 @@
 */
 ?>
 <?php
-require_once('./configPointer.php');
+require_once('snippets/configPointer.php');
 global $config;
 ?>
 <!-- Navigation Header-->

@@ -35,7 +35,7 @@
 Require Configuration File.
 =========================*/
 //Go edit this file.
-require('configPointer.php');
+require('snippets/configPointer.php');
 ?>
 <head>
     <meta charset="utf-8">

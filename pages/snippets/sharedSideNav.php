@@ -110,6 +110,12 @@
                 </a>
                 </li>
 
+                <li>
+                <a href="module_file_dependencies.php">
+                <i class="text-success fa fa-connectdevelop fa-fw"></i> File Dependencies
+                </a>
+                </li>
+
                 <!-- <li>
                 <a target="_blank" href="module_help.php">
                 <i class="text-success fa fa-question fa-fw"></i> User Guide

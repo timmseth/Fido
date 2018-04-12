@@ -1,0 +1,374 @@
+[
+
+
+
+
+
+	{"name":"FiDo.demoFiles.demoData\u00b7sql",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.demoFiles.demo_fido_config\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+
+
+
+
+	{"name":"Fido.root.README\u00b7md",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"Fido.root.LICENSE",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"Fido.root.index\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"Fido.root.fake_dependent_file",
+	"size":9983,
+	"imports":[
+		"Fido.root.LICENSE",
+		"Fido.root.README\u00b7md",
+		"Fido.root.index\u00b7php"
+	]},
+
+
+
+
+
+	{"name":"FiDo.secureLocation.fido_config\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+
+
+
+
+	{"name":"FiDo.snippets.configPointer\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.secureLocation.fido_config\u00b7php"
+	]},
+
+	{"name":"FiDo.snippets.sharedHead\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.configPointer\u00b7php",
+		"FiDo.DISTcss.customStyles\u00b7css",
+		"FiDo.DISTcss.sb-admin-2\u00b7css",
+		"Fido.bower_components_bootstrap_dist_css.bootstrap\u00b7min\u00b7css",
+		"FiDo.DISTcss.animate\u00b7css"
+	]},
+
+	{"name":"FiDo.snippets.commonFunctions\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.snippets.sharedTopNav\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.snippets.sharedBreadcrumbs\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.snippets.sharedSideNav\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.snippets.debug_mockSelectedBuilding\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+
+
+
+
+	{"name":"FiDo.pages.index\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.analytics\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.equipment_crud\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.guidedRecordCreation\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.interbuildingMapLogical\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.manageCabinet\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.module_browse\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.module_crud\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.module_tutorials\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.pathPlanner\u00b7php",
+	"size":9983,
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
+
+	{"name":"FiDo.pages.interactiveLevelMap\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.pages.interbuildingMap\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.pages.interbuildingMapGeo\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.pages.interbuildingMapGeoEmbed\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.pages.manageCabinetContents\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.pages.module_crud_locations\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.pages.module_crud_preload_operations\u00b7php",
+	"size":9983,
+	"imports":[]},
+
+
+
+
+
+	{"name":"FiDo.js.attenuationCalculator\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.js.customScripts\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.js.flot-data\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+
+
+
+
+	{"name":"FiDo.DISTjs.collapsable\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTjs.d3\u00b7v3\u00b7min\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTjs.jquery\u00b7easing\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTjs.leaflet\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTjs.neighborhoods\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTjs.sb-admin-2\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTjs.treant\u00b7js",
+	"size":9983,
+	"imports":[]},
+
+
+
+
+
+	{"name":"FiDo.DISTimg.blueprintPaper\u00b7png",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTimg.building-front\u00b7svg",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTimg.building-front_white\u00b7svg",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTimg.elephantHeadPolygon\u00b7png",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTimg.footer_lodyas\u00b7png",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTimg.squared_metal\u00b7png",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTimg.squared_metal_x2\u00b7png",
+	"size":9983,
+	"imports":[]},
+
+
+
+
+
+	{"name":"FiDo.DISTcss.animate\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.bootstrap-social\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.bootstrap\u00b7min\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.collapsable\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.customStyles\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.dataTables\u00b7bootstrap\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.dataTables\u00b7responsive\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.dataTables\u00b7responsive\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.font-awesome\u00b7min\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.leaflet\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.metisMenu\u00b7min\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.morris\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.perfect-scrollbar\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.sb-admin-2\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.timeline\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+	{"name":"FiDo.DISTcss.treant\u00b7css",
+	"size":9983,
+	"imports":[]},
+
+
+
+
+
+	{"name":"Fido.bower_components_bootstrap_dist_css.bootstrap\u00b7min\u00b7css",
+	"size":9983,
+	"imports":[]}
+]

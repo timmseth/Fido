@@ -34,7 +34,7 @@
 <html lang="en">
 <?php 
 //require common php functions
-include('./commonFunctions.php');
+include('snippets/commonFunctions.php');
 //include snippet - shared head html
 include('snippets/sharedHead.php');
 //write page start snippet
