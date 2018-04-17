@@ -409,21 +409,24 @@ writeHeader('FiDo Analytics');
     </script>
     ';
 
+$overwriteAnalyticsDataEntryDisplayWithDemoDataBool=0;
 
+//init
+$historicalDataEntryArray = array();
 
 //STRAND data entry
     $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-    $stmt = $db->prepare('SELECT COUNT(strand_UID) AS strandCount, MONTH(lastmodified) AS month, YEAR(lastmodified) AS year FROM strand WHERE YEAR(lastmodified)=:thisyear GROUP BY MONTH(lastmodified) ORDER BY lastmodified ASC');
-    $stmt->bindParam(':thisyear', date(Y));
+    $stmt = $db->prepare('SELECT COUNT(strand_UID) AS strandCount, MONTH(lastmodified) AS month, YEAR(lastmodified) AS year FROM strand GROUP BY MONTH(lastmodified) ORDER BY lastmodified ASC');
     $stmt->execute();
     $iCounter=0;
         foreach($stmt as $row) {
-            $dataEntryStrands[$iCounter]['strandCount']=$row['strandCount'];
-            $dataEntryStrands[$iCounter]['month']=$row['month'];
-            $dataEntryStrands[$iCounter]['year']=$row['year'];
-            $iCounter++;
+            //$dataEntryStrands[$iCounter]['strandCount']=$row['strandCount'];
+            //$dataEntryStrands[$iCounter]['month']=$row['month'];
+            //$dataEntryStrands[$iCounter]['year']=$row['year'];
+            //$iCounter++;
+            $historicalDataEntryArray[$row['year']][$row['month']]['strands']=$row['strandCount'];
         }
     }
     catch(PDOException $e){}
@@ -433,15 +436,15 @@ writeHeader('FiDo Analytics');
     $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-    $stmt = $db->prepare('SELECT COUNT(jumper_UID) AS jumperCount, MONTH(lastmodified) AS month, YEAR(lastmodified) AS year FROM jumper WHERE YEAR(lastmodified)=:thisyear GROUP BY MONTH(lastmodified) ORDER BY lastmodified ASC');
-    $stmt->bindParam(':thisyear', date(Y));
+    $stmt = $db->prepare('SELECT COUNT(jumper_UID) AS jumperCount, MONTH(lastmodified) AS month, YEAR(lastmodified) AS year FROM jumper GROUP BY MONTH(lastmodified) ORDER BY lastmodified ASC');
     $stmt->execute();
     $iCounter=0;
         foreach($stmt as $row) {
-            $dataEntryJumpers[$iCounter]['jumperCount']=$row['jumperCount'];
-            $dataEntryJumpers[$iCounter]['month']=$row['month'];
-            $dataEntryJumpers[$iCounter]['year']=$row['year'];
-            $iCounter++;
+            //$dataEntryJumpers[$iCounter]['jumperCount']=$row['jumperCount'];
+            //$dataEntryJumpers[$iCounter]['month']=$row['month'];
+            //$dataEntryJumpers[$iCounter]['year']=$row['year'];
+            //$iCounter++;
+            $historicalDataEntryArray[$row['year']][$row['month']]['jumpers']=$row['jumperCount'];
         }
     }
     catch(PDOException $e){}
@@ -451,15 +454,15 @@ writeHeader('FiDo Analytics');
     $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-    $stmt = $db->prepare('SELECT COUNT(port_UID) AS portCount, MONTH(lastmodified) AS month, YEAR(lastmodified) AS year FROM port WHERE YEAR(lastmodified)=:thisyear GROUP BY MONTH(lastmodified) ORDER BY lastmodified ASC');
-    $stmt->bindParam(':thisyear', date(Y));
+    $stmt = $db->prepare('SELECT COUNT(port_UID) AS portCount, MONTH(lastmodified) AS month, YEAR(lastmodified) AS year FROM port GROUP BY MONTH(lastmodified) ORDER BY lastmodified ASC');
     $stmt->execute();
     $iCounter=0;
         foreach($stmt as $row) {
-            $dataEntryPorts[$iCounter]['portCount']=$row['portCount'];
-            $dataEntryPorts[$iCounter]['month']=$row['month'];
-            $dataEntryPorts[$iCounter]['year']=$row['year'];
-            $iCounter++;
+            //$dataEntryPorts[$iCounter]['portCount']=$row['portCount'];
+            //$dataEntryPorts[$iCounter]['month']=$row['month'];
+            //$dataEntryPorts[$iCounter]['year']=$row['year'];
+            //$iCounter++;
+            $historicalDataEntryArray[$row['year']][$row['month']]['ports']=$row['portCount'];
         }
     }
     catch(PDOException $e){}
@@ -468,15 +471,15 @@ writeHeader('FiDo Analytics');
     $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-    $stmt = $db->prepare('SELECT COUNT(panel.panel_UID) AS panelCount, MONTH(panel.lastMod) AS month, YEAR(panel.lastMod) AS year FROM panel WHERE YEAR(panel.lastMod)=:thisyear GROUP BY MONTH(panel.lastMod) ORDER BY panel.lastMod ASC');
-    $stmt->bindParam(':thisyear', date(Y));
+    $stmt = $db->prepare('SELECT COUNT(panel.panel_UID) AS panelCount, MONTH(panel.lastMod) AS month, YEAR(panel.lastMod) AS year FROM panel GROUP BY MONTH(panel.lastMod) ORDER BY panel.lastMod ASC');
     $stmt->execute();
     $iCounter=0;
         foreach($stmt as $row) {
-            $dataEntryPanels[$iCounter]['panelCount']=$row['panelCount'];
-            $dataEntryPanels[$iCounter]['month']=$row['month'];
-            $dataEntryPanels[$iCounter]['year']=$row['year'];
-            $iCounter++;
+            //$dataEntryPanels[$iCounter]['panelCount']=$row['panelCount'];
+            //$dataEntryPanels[$iCounter]['month']=$row['month'];
+            //$dataEntryPanels[$iCounter]['year']=$row['year'];
+            //$iCounter++;
+            $historicalDataEntryArray[$row['year']][$row['month']]['panels']=$row['panelCount'];
         }
     }
     catch(PDOException $e){}
@@ -485,34 +488,164 @@ writeHeader('FiDo Analytics');
     $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-    $stmt = $db->prepare('SELECT COUNT(cabinet.cabinet_UID) AS cabinetCount, MONTH(cabinet.lastmodified) AS month, YEAR(cabinet.lastmodified) AS year FROM cabinet WHERE YEAR(cabinet.lastmodified)=:thisyear GROUP BY MONTH(cabinet.lastmodified) ORDER BY cabinet.lastmodified ASC');
-    $stmt->bindParam(':thisyear', date(Y));
+    $stmt = $db->prepare('SELECT COUNT(cabinet.cabinet_UID) AS cabinetCount, MONTH(cabinet.lastmodified) AS month, YEAR(cabinet.lastmodified) AS year FROM cabinet GROUP BY MONTH(cabinet.lastmodified) ORDER BY cabinet.lastmodified ASC');
     $stmt->execute();
     $iCounter=0;
         foreach($stmt as $row) {
-            $dataEntryCabinets[$iCounter]['cabinetCount']=$row['cabinetCount'];
-            $dataEntryCabinets[$iCounter]['month']=$row['month'];
-            $dataEntryCabinets[$iCounter]['year']=$row['year'];
-            $iCounter++;
+            //$dataEntryCabinets[$iCounter]['cabinetCount']=$row['cabinetCount'];
+            //$dataEntryCabinets[$iCounter]['month']=$row['month'];
+            //$dataEntryCabinets[$iCounter]['year']=$row['year'];
+            //$iCounter++;
+            $historicalDataEntryArray[$row['year']][$row['month']]['cabinets']=$row['cabinetCount'];
         }
     }
     catch(PDOException $e){}
+    
 
-//echo (date(Y)-5);
-
-//$tempLabels='';
+//Actual Area Graph Data
 $tempString='';
-foreach ($dataEntryPorts as $key => $value) {
-    $tempString.='{
-    y: "2017-'.str_pad($value['month'],2,'0',STR_PAD_LEFT).'",
-    a: "'.$value['portCount'].'",
-    b: "'.$dataEntryJumpers[$key]['jumperCount'].'",
-    c: "'.$dataEntryStrands[$key]['strandCount'].'",
-    d: "'.$dataEntryPanels[$key]['panelCount'].'",
-    e: "'.$dataEntryCabinets[$key]['cabinetCount'].'"
+foreach ($historicalDataEntryArray as $year => $year_value){
+    //$tempString.='Year: '.$year.'<br />';
+    //$tempString.='Year Value: '.$year_value.'<br />';
+    foreach ($year_value as $month => $month_value) {
+        //set 0 values if values are null
+        if($month_value['cabinets']==NULL){
+            $month_value['cabinets']=0;
+        }
+        if($month_value['panels']==NULL){
+            $month_value['panels']=0;
+        }
+        if($month_value['ports']==NULL){
+            $month_value['ports']=0;
+        }
+        if($month_value['jumpers']==NULL){
+            $month_value['jumpers']=0;
+        }
+        if($month_value['strands']==NULL){
+            $month_value['strands']=0;
+        }
+        $tempString.='{
+        y: "'.$year.'-'.str_pad($month,2,'0',STR_PAD_LEFT).'",
+        a: "'.$month_value['cabinets'].'",
+        b: "'.$month_value['panels'].'",
+        c: "'.$month_value['ports'].'",
+        d: "'.$month_value['jumpers'].'",
+        e: "'.$month_value['strands'].'"
     },';
+    }
 }
 $tempString=substr(trim($tempString), 0, -1);
+
+
+if ($overwriteAnalyticsDataEntryDisplayWithDemoDataBool){
+//START DEMO AREA DATA
+//Override with Demo Data
+    $demoAreaGraphData = array(
+        1 => array(
+            'portCount' => 60,
+            'jumperCount' => 60,
+            'strandCount' => 15,
+            'panelCount' => 15,
+            'cabinetCount' => 10
+        ),
+        2 => array(
+            'portCount' => 50,
+            'jumperCount' => 40,
+            'strandCount' => 10,
+            'panelCount' => 10,
+            'cabinetCount' => 10
+        ),
+        3 => array(
+            'portCount' => 70,
+            'jumperCount' => 40,
+            'strandCount' => 10,
+            'panelCount' => 10,
+            'cabinetCount' => 10
+        ),
+        4 => array(
+            'portCount' => 80,
+            'jumperCount' => 50,
+            'strandCount' => 10,
+            'panelCount' => 10,
+            'cabinetCount' => 10
+        ),
+        5 => array(
+            'portCount' => 100,
+            'jumperCount' => 70,
+            'strandCount' => 10,
+            'panelCount' => 10,
+            'cabinetCount' => 10
+        ),
+        6 => array(
+            'portCount' => 10,
+            'jumperCount' => 10,
+            'strandCount' => 10,
+            'panelCount' => 10,
+            'cabinetCount' => 10
+        ),
+        7 => array(
+            'portCount' => 10,
+            'jumperCount' => 10,
+            'strandCount' => 10,
+            'panelCount' => 10,
+            'cabinetCount' => 10
+        ),
+        8 => array(
+            'portCount' => 53,
+            'jumperCount' => 74,
+            'strandCount' => 97,
+            'panelCount' => 50,
+            'cabinetCount' => 19
+        ),
+        9 => array(
+            'portCount' => 84,
+            'jumperCount' => 43,
+            'strandCount' => 84,
+            'panelCount' => 77,
+            'cabinetCount' => 28
+        ),
+        10 => array(
+            'portCount' => 57,
+            'jumperCount' => 86,
+            'strandCount' => 96,
+            'panelCount' => 75,
+            'cabinetCount' => 60
+        ),
+        11 => array(
+            'portCount' => 60,
+            'jumperCount' => 45,
+            'strandCount' => 91,
+            'panelCount' => 46,
+            'cabinetCount' => 32
+        ),
+        12 => array(
+            'portCount' => 80,
+            'jumperCount' => 49,
+            'strandCount' => 58,
+            'panelCount' => 94,
+            'cabinetCount' => 52
+        )
+    );
+
+    $tempString='';
+    for ($i=1; $i <= 12; $i++) { 
+    $tempString.='{
+        y: "2017-'.$i.'",
+        a: "'.$demoAreaGraphData[$i]['portCount'].'",
+        b: "'.$demoAreaGraphData[$i]['jumperCount'].'",
+        c: "'.$demoAreaGraphData[$i]['strandCount'].'",
+        d: "'.$demoAreaGraphData[$i]['panelCount'].'",
+        e: "'.$demoAreaGraphData[$i]['cabinetCount'].'"
+    },';
+    }      
+    $tempString=substr(trim($tempString), 0, -1);
+//END DEMO AREA DATA
+}
+
+//DEBUG - PRINT TEMP STRING
+//echo '<pre>';
+//echo 'Temp String:<br />'.$tempString;
+//echo '</pre>';
 
 echo '
 <script>
@@ -520,8 +653,8 @@ Morris.Area({
 element: "dataEntryRecords",
 data: ['.$tempString.'],
 xkey: "y",
-ykeys: ["a","c","d","e"],
-labels: ["Port Entry","Strand Entry","Panel Entry","Cabinet Entry"],
+ykeys: ["a","b","c","d","e"],
+labels: ["Cabinet Entry","Panel Entry","Port Entry","Jumper Entry","Strand Entry"],
 xLabels: "month"
 });
 </script>
