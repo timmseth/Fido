@@ -187,30 +187,46 @@
 		"FiDo.snippets.sharedSideNav\u00b7php",
 		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
 	]},
-
-	{"name":"FiDo.pages.interactiveLevelMap\u00b7php",
+	
+	{"name":"FiDo.pages.interbuildingMapLogical\u00b7php",
 	"size":9983,
-	"imports":[]},
-
-	{"name":"FiDo.pages.interbuildingMap\u00b7php",
-	"size":9983,
-	"imports":[]},
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
 
 	{"name":"FiDo.pages.interbuildingMapGeo\u00b7php",
 	"size":9983,
-	"imports":[]},
-
-	{"name":"FiDo.pages.interbuildingMapGeoEmbed\u00b7php",
-	"size":9983,
-	"imports":[]},
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
 
 	{"name":"FiDo.pages.manageCabinetContents\u00b7php",
 	"size":9983,
-	"imports":[]},
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
 
 	{"name":"FiDo.pages.module_crud_locations\u00b7php",
 	"size":9983,
-	"imports":[]},
+	"imports":[
+		"FiDo.snippets.commonFunctions\u00b7php",
+		"FiDo.snippets.sharedHead\u00b7php",
+		"FiDo.snippets.sharedTopNav\u00b7php",
+		"FiDo.snippets.sharedSideNav\u00b7php",
+		"FiDo.snippets.sharedBreadcrumbs\u00b7php"
+	]},
 
 	{"name":"FiDo.pages.module_crud_preload_operations\u00b7php",
 	"size":9983,

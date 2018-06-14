@@ -46,7 +46,8 @@ writeHeader('FiDo Analytics');
 
 
 
-<div class="row">           
+<div class="row">  
+<div class="col-xs-12">         
     <!-- Buildings -->
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
@@ -222,6 +223,7 @@ writeHeader('FiDo Analytics');
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <?php
@@ -542,46 +544,46 @@ if ($overwriteAnalyticsDataEntryDisplayWithDemoDataBool){
 //Override with Demo Data
     $demoAreaGraphData = array(
         1 => array(
-            'portCount' => 60,
+            'portCount' => 10,
             'jumperCount' => 60,
             'strandCount' => 15,
             'panelCount' => 15,
             'cabinetCount' => 10
         ),
         2 => array(
-            'portCount' => 50,
+            'portCount' => 30,
             'jumperCount' => 40,
-            'strandCount' => 10,
-            'panelCount' => 10,
-            'cabinetCount' => 10
+            'strandCount' => 9,
+            'panelCount' => 11,
+            'cabinetCount' => 9
         ),
         3 => array(
-            'portCount' => 70,
+            'portCount' => 50,
             'jumperCount' => 40,
-            'strandCount' => 10,
-            'panelCount' => 10,
-            'cabinetCount' => 10
+            'strandCount' => 11,
+            'panelCount' => 9,
+            'cabinetCount' => 11
         ),
         4 => array(
-            'portCount' => 80,
+            'portCount' => 20,
             'jumperCount' => 50,
-            'strandCount' => 10,
-            'panelCount' => 10,
-            'cabinetCount' => 10
+            'strandCount' => 9,
+            'panelCount' => 11,
+            'cabinetCount' => 9
         ),
         5 => array(
-            'portCount' => 100,
-            'jumperCount' => 70,
-            'strandCount' => 10,
-            'panelCount' => 10,
-            'cabinetCount' => 10
+            'portCount' => 10,
+            'jumperCount' => 50,
+            'strandCount' => 11,
+            'panelCount' => 9,
+            'cabinetCount' => 11
         ),
         6 => array(
-            'portCount' => 10,
-            'jumperCount' => 10,
-            'strandCount' => 10,
-            'panelCount' => 10,
-            'cabinetCount' => 10
+            'portCount' => 11,
+            'jumperCount' => 9,
+            'strandCount' => 11,
+            'panelCount' => 19,
+            'cabinetCount' => 11
         ),
         7 => array(
             'portCount' => 10,
@@ -591,10 +593,10 @@ if ($overwriteAnalyticsDataEntryDisplayWithDemoDataBool){
             'cabinetCount' => 10
         ),
         8 => array(
-            'portCount' => 53,
-            'jumperCount' => 74,
-            'strandCount' => 97,
-            'panelCount' => 50,
+            'portCount' => 25,
+            'jumperCount' => 35,
+            'strandCount' => 45,
+            'panelCount' => 25,
             'cabinetCount' => 19
         ),
         9 => array(
@@ -628,7 +630,7 @@ if ($overwriteAnalyticsDataEntryDisplayWithDemoDataBool){
     );
 
     $tempString='';
-    for ($i=1; $i <= 12; $i++) { 
+    for ($i=1; $i <= 6; $i++) { 
     $tempString.='{
         y: "2017-'.$i.'",
         a: "'.$demoAreaGraphData[$i]['portCount'].'",

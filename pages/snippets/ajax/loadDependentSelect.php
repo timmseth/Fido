@@ -32,7 +32,7 @@
 ?>
 <?php
 //get config file
-require_once('../../configPointer.php');
+require_once('../configPointer.php');
 
 if (isset($_GET['form']) && isset($_GET['load'])) {
 
